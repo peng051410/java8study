@@ -1,4 +1,4 @@
-package com.tomyli;
+package cn.imcompany;
 
 /**
  * lizp@ishugui.com
