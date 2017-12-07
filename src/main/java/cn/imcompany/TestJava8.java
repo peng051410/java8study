@@ -1,5 +1,9 @@
 package cn.imcompany;
 
+import java.util.Arrays;
+import java.util.Random;
+import java.util.function.UnaryOperator;
+
 /**
  * lizp@ishugui.com
  *
@@ -8,6 +12,20 @@ package cn.imcompany;
 public class TestJava8 {
 
     public static void main(String[] args) {
-        System.out.println("123");
+
+        Random random = new Random();
+
+        UnaryOperator<Integer> operator = a -> random.nextInt();
+        System.out.println(operator.apply(11));
+
+        System.out.println("----------------");
+
+        int[] arr = new int[5];
+        Arrays.setAll(arr, a -> (random.nextInt()));
+
+        for (int i : arr) {
+            System.out.println(i);
+        }
+
     }
 }
