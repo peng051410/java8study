@@ -1,6 +1,6 @@
 package cn.imcompany.home1;
 
-public class OneArray {
+public class ThreeOneArray {
 
     public static void main(String[] args) {
 

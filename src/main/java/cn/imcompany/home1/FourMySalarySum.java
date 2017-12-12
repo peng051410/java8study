@@ -3,12 +3,13 @@ package cn.imcompany.home1;
 import cn.imcompany.domain.Salary;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class MySalarySum {
+public class FourMySalarySum {
 
     private static char[] arr = new char[52];
 
@@ -22,11 +23,15 @@ public class MySalarySum {
 
         Salary[] salaries = new Salary[10000];
 
-        IntFunction<Salary> intFunction = i -> new Salary(generateName(), generateBase(), generateBouns());
+        IntFunction<Salary> intFunction = i -> new Salary(generateName(), generateBase(), generateBouns(), 0);
         Arrays.setAll(salaries, intFunction);
-        for (Salary salary : salaries) {
-            System.out.println(salary);
-        }
+
+        Arrays.stream(salaries)
+                .map(salary -> new Salary(salary.getName(), salary.getBaseSalary(), salary.getBonus(), salary.getBaseSalary() * 13 + salary.getBonus()))
+                .sorted(Comparator.comparing(Salary::getTotalSalary).reversed()).limit(10)
+                .forEach(salary -> {
+                    System.out.println("name:" + salary.getName() + "," + salary.getTotalSalary());
+                });
     }
 
     private static int generateBase() {
