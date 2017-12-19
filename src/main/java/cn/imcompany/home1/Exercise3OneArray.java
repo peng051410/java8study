@@ -1,6 +1,6 @@
 package cn.imcompany.home1;
 
-public class ThreeOneArray {
+public class Exercise3OneArray {
 
     public static void main(String[] args) {
 
@@ -27,6 +27,6 @@ public class ThreeOneArray {
                 result1 += bytes[j][i];
             }
         }
-        System.out.println("column" + (System.currentTimeMillis() - start1) + ",result:" + result1);
+        System.out.println("column:" + (System.currentTimeMillis() - start1) + ",result:" + result1);
     }
 }

@@ -3,7 +3,7 @@ package cn.imcompany.home1;
 import cn.imcompany.domain.ByteStore;
 import cn.imcompany.domain.MyItem;
 
-public class FiveByteItem {
+public class Exercise5ByteItem {
 
     public static void main(String[] args) {
 
