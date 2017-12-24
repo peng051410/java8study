@@ -2,8 +2,11 @@ package cn.imcompany.home1;
 
 import cn.imcompany.domain.Salary;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.IntFunction;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -20,16 +23,19 @@ public class Exercise4MySalarySum {
     public static void main(String[] args) {
 
         junwenRealize();
+        myRelize();
+    }
 
-//        Salary[] salaries = new Salary[10000];
-//
-//        IntFunction<Salary> intFunction = i -> new Salary(generateName(), generateBase(), generateBouns(), 0);
-//        Arrays.setAll(salaries, intFunction);
-//
-//        Arrays.stream(salaries)
-//                .map(salary -> new Salary(salary.getName(), salary.getBaseSalary(), salary.getBonus(), salary.getBaseSalary() * 13 + salary.getBonus()))
-//                .sorted(Comparator.comparing(Salary::getTotalSalary).reversed()).limit(10)
-//                .forEach(salary -> System.out.println("name:" + salary.getName() + "," + salary.getTotalSalary()));
+    private static void myRelize() {
+        Salary[] salaries = new Salary[10000];
+
+        IntFunction<Salary> intFunction = i -> new Salary(generateName(), generateBase(), generateBouns(), 0);
+        Arrays.setAll(salaries, intFunction);
+
+        Arrays.stream(salaries)
+                .map(salary -> new Salary(salary.getName(), salary.getBaseSalary(), salary.getBonus(), salary.getBaseSalary() * 13 + salary.getBonus()))
+                .sorted(Comparator.comparing(Salary::getTotalSalary).reversed()).limit(10)
+                .forEach(salary -> System.out.println("name:" + salary.getName() + "," + salary.getTotalSalary()));
     }
 
     public static void junwenRealize() {
@@ -50,11 +56,8 @@ public class Exercise4MySalarySum {
                 .limit(10000)
                 .sorted((x, y) -> Long.compare(y.getTotalSalary(), x.getTotalSalary()))
                 .limit(10)
-                .forEachOrdered(k -> {
-                    System.out.println(k);
-                    System.out.format(format, k.getName(), k.getTotalSalary());
-                        }
-                );
+//                .forEach(k-> System.out.format(format, k.getName(), k.getTotalSalary()));
+                .forEachOrdered(k -> System.out.format(format, k.getName(), k.getTotalSalary()));
     }
 
     private static int generateBase() {
