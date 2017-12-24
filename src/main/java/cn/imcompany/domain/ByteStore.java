@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class ByteStore {
 
-    private byte[] storeByteArray = new byte[1000];
+    private byte[] storeByteArray = new byte[10000];
 
     public void putMyItem(int index, MyItem item) {
 
@@ -20,4 +20,5 @@ public class ByteStore {
         int arrIndex = 3 * index;
         return new MyItem(storeByteArray[arrIndex], storeByteArray[arrIndex + 1], storeByteArray[arrIndex + 2]);
     }
+
 }
