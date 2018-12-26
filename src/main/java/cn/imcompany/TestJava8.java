@@ -19,6 +19,8 @@ public class TestJava8 {
         System.out.println(operator.apply(11));
 
         System.out.println("----------------");
+        System.out.println("fffff");
+        System.out.println("faasdf");
 
         int[] arr = new int[5];
         Arrays.setAll(arr, a -> (random.nextInt()));

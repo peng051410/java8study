@@ -15,9 +15,9 @@ public class Exercise5ByteItem {
     public static void main(String[] args) {
 
         ByteStore byteStore = new ByteStore();
-        MyItem item1 = new MyItem(((byte) 1), ((byte) 1), ((byte) 6));
-        MyItem item2 = new MyItem(((byte) 2), ((byte) 2), ((byte) 7));
-        MyItem item3 = new MyItem(((byte) 3), ((byte) 3), ((byte) 8));
+        MyItem item1 = produceItem((byte) 1, (byte) 1, (byte) 6);
+        MyItem item2 = produceItem((byte) 2, (byte) 2, (byte) 7);
+        MyItem item3 = produceItem((byte) 3, (byte) 2, (byte) 8);
         byteStore.putMyItem(0, item1);
         byteStore.putMyItem(1, item2);
         byteStore.putMyItem(2, item3);
@@ -35,12 +35,16 @@ public class Exercise5ByteItem {
 
     }
 
+    private static MyItem produceItem(byte i, byte i1, byte i2) {
+        return new MyItem(i, i1, i2);
+    }
+
     private static void fillByteStore() {
 
         ByteStore2 byteStore = new ByteStore2();
-        MyItem item1 = new MyItem(((byte) 1), ((byte) 1), ((byte) 6));
-        MyItem item2 = new MyItem(((byte) 2), ((byte) 2), ((byte) 7));
-        MyItem item3 = new MyItem(((byte) 3), ((byte) 3), ((byte) 8));
+        MyItem item1 = produceItem((byte) 1, (byte) 1, (byte) 6);
+        MyItem item2 = produceItem((byte) 2, (byte) 2, (byte) 7);
+        MyItem item3 = produceItem((byte) 3, (byte) 3, (byte) 8);
         byteStore.putMyItemBitOperation(0, item1);
         byteStore.putMyItemBitOperation(1, item2);
         byteStore.putMyItemBitOperation(2, item3);

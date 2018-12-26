@@ -1,6 +1,5 @@
 package cn.imcompany.domain;
 
-
 import org.junit.Test;
 
 import java.util.*;
@@ -43,6 +42,7 @@ public class LambdaTest {
     public void testPredicate() {
 
         Set<String> sets = new HashSet<>();
+        sets.add("fd");
         sets.add("10");
 
         Predicate<String> predicate = sets::contains;
@@ -78,7 +78,7 @@ public class LambdaTest {
         student.setSex(i % 2 == 0 ? 1 : 2);
         student.setTag("tag" + i);
 
-        Function<Student, String> firstFunction = s -> s.getName() + "," + s.getAge();
+        Function<Student, String> firstFunction = (Student s) -> s.getName() + "," + s.getAge();
         Function<Student, String> secondFunction = s -> s.getName() + "," + s.getSex();
         System.out.println(student.printStudent(firstFunction));
         System.out.println(student.printStudent(secondFunction));

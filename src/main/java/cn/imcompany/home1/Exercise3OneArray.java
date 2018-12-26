@@ -13,9 +13,9 @@ public class Exercise3OneArray {
 
         int result = 0;
         long start = System.currentTimeMillis();
-        for (int i = 0; i < bytes.length; i++) {
-            for (int j = 0; j < bytes[i].length; j++) {
-                result += bytes[i][j];
+        for (byte[] aByte : bytes) {
+            for (byte b : aByte) {
+                result += b;
             }
         }
         System.out.println("row:" + (System.currentTimeMillis() - start) + ",result:" + result);

@@ -22,23 +22,31 @@ public class Exercise4MySalarySum {
 
     public static void main(String[] args) {
 
+        long start = System.currentTimeMillis();
         junwenRealize();
-        myRelize();
+        System.out.println(System.currentTimeMillis() - start);
+
+        long start1 = System.currentTimeMillis();
+        myRealize();
+        System.out.println(System.currentTimeMillis() - start1);
+
     }
 
-    private static void myRelize() {
+    private static void myRealize() {
+
         Salary[] salaries = new Salary[10000];
 
-        IntFunction<Salary> intFunction = i -> new Salary(generateName(), generateBase(), generateBouns(), 0);
+        IntFunction<Salary> intFunction = i -> new Salary(generateName(), generateBase(), generateBonus(), 0);
         Arrays.setAll(salaries, intFunction);
 
         Arrays.stream(salaries)
-                .map(salary -> new Salary(salary.getName(), salary.getBaseSalary(), salary.getBonus(), salary.getBaseSalary() * 13 + salary.getBonus()))
+                .map(salary -> new Salary(salary.getName(), salary.getBaseSalary(), salary.getBonus(),
+                        salary.getBaseSalary() * 13 + salary.getBonus()))
                 .sorted(Comparator.comparing(Salary::getTotalSalary).reversed()).limit(10)
                 .forEach(salary -> System.out.println("name:" + salary.getName() + "," + salary.getTotalSalary()));
     }
 
-    public static void junwenRealize() {
+    private static void junwenRealize() {
 
         String format = "%s:%d%n";
         Random random = new Random(550);
@@ -46,7 +54,7 @@ public class Exercise4MySalarySum {
                 .mapToObj(i -> {
                     ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
                     return new Salary(
-                            (String.valueOf(threadLocalRandom.nextInt(10000, 100000 + 1)) + "  ").substring(0, 5),
+                            (threadLocalRandom.nextInt(10000, 100000 + 1) + "  ").substring(0, 5),
                             i / 10,
                             threadLocalRandom.nextInt(0, 100000 + 1) / 10000, 0L);
                 })
@@ -63,13 +71,13 @@ public class Exercise4MySalarySum {
     private static int generateBase() {
 
         IntStream ints = new Random().ints(1, 5, 100_0000);
-        return ints.findFirst().getAsInt();
+        return ints.findFirst().orElse(-1);
     }
 
-    private static int generateBouns() {
+    private static int generateBonus() {
 
         IntStream ints = new Random().ints(1, 0, 10_0000);
-        return ints.findFirst().getAsInt();
+        return ints.findFirst().orElse(-1);
     }
 
     private static String generateName() {
