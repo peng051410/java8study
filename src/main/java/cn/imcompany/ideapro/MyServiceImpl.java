@@ -45,8 +45,8 @@ public class MyServiceImpl implements MyService {
     }
 
     @Override
-    public void test3() {
-
+    public String test3() {
+        return null;
     }
 
     @Override

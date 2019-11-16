@@ -14,14 +14,6 @@ public class Person {
         return name;
     }
 
-    public Person setName(String name) throws ClassNotFoundException {
-
-        new MyServiceImpl().test2();
-        Class.forName("");
-        boolean aa = true;
-        this.name = name;
-    }
-
     public static void main(String[] args) {
 
         new Thread(() -> {
