@@ -1,8 +1,11 @@
 package cn.imcompany.base;
 
+import cn.imcompany.leetcode.LRU;
 import org.junit.Test;
 
 public class BaseData {
+
+    private int  anInt;
 
     @Test
     public void testDataType() {
@@ -12,5 +15,10 @@ public class BaseData {
 
         byte bb = ((byte) 0b11110000);
         System.out.println(bb);
+
+        LRU lru = new LRU();
+
+        System.out.println(anInt);
+        anInt = 5;
     }
 }
